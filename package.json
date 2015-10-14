@@ -1,0 +1,21 @@
+{
+  "name": "bang",
+  "version": "1.0.0",
+  "description": "a twitter bot that tweets with every police shooting death",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "arghgr",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^1.2.0",
+    "fs": "0.0.2",
+    "request": "^2.65.0",
+    "twit": "^2.1.0"
+  },
+  "engines": {
+    "node": ">=4.1.1",
+    "npm": "~2.14.4"
+  }
+}
