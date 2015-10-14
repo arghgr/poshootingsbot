@@ -1,4 +1,8 @@
-require('dotenv').load();
+var isProduction = JSON.parse(process.env.IS_PRODUCTION);
+if (isProduction == false) {
+  require('dotenv').load(); // Load .env for testing
+}
+
 var request = require('request');
 
 var csvd = require('./csvdiffer');
@@ -29,9 +33,6 @@ var runApp = function() {
     }
   });
 }
-
-// Check if on production server using .env var
-var isProduction = JSON.parse(process.env.IS_PRODUCTION);
 
 if (isProduction == true) {
   // RUN WITH PRODUCTION DATA AND HEROKU SCHEDULER

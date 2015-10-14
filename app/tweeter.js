@@ -1,8 +1,10 @@
-require('dotenv').load();
 var request = require("request");
 var Twit = require("twit");
 
 var isProduction = JSON.parse(process.env.IS_PRODUCTION);
+if (isProduction == false) {
+  require('dotenv').load(); // Load .env for testing
+}
 
 var T = new Twit({
   consumer_key: process.env.PSB_API_KEY,
