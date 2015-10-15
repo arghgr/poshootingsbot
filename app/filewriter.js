@@ -5,6 +5,8 @@ var writeToFile = function(data, filename, callback) {
   stream.on('open', function(filedescriptor) {
     stream.write(data);
     stream.end();
+  }).on('end', function() {
+    console.log('File written to ' + filename + '.');
     callback();
   });
 }
