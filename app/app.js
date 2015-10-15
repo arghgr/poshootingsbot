@@ -30,8 +30,7 @@ var runApp = function() {
             console.log(writeError);
           }
           csvd.checkForNewLines(oldFile, currentFile, function(lineCheck) {
-            console.log('lineCheck');
-            console.log(lineCheck);
+            console.log('lineCheck: ' + lineCheck);
             if (lineCheck && lineCheck > 0) {
               tw.composeTweet(lineCheck);
             }

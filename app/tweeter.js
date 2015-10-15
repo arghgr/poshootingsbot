@@ -30,7 +30,12 @@ var composeTweet = function(lineCount) {
   } else {
     var tweet = lineCount + ' more people.';
   }
-  if (isProduction == true) { postTweet(tweet); }
+  if (isProduction == true) {
+    postTweet(tweet);
+  } else {
+    console.log('Tweet:');
+    console.log(tweet);
+  }
 }
 
 exports.postTweet = postTweet;
