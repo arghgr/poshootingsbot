@@ -10,7 +10,13 @@ var writeToFile = function(data, filename, callback) {
 }
 
 var renameFile = function(oldPath, newPath, callback) {
-  fs.rename(oldPath, newPath, callback);
+  fs.rename(oldPath, newPath, function(error) {
+    if (error) {
+      console.log('renameFile error');
+      console.log(error);
+    }
+    callback();
+  });
 }
 
 var copyToFile = function(file, copyLocation) {
