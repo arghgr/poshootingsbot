@@ -2,7 +2,7 @@ var fs = require('fs');
 
 var writeToFile = function(data, filename, callback) {
   var stream = fs.createWriteStream(filename);
-  stream.once('open', function(filedescriptor) {
+  stream.on('open', function(filedescriptor) {
     stream.write(data);
     stream.end();
     callback();

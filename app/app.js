@@ -19,8 +19,16 @@ var runApp = function() {
   request.get(csv, function(error, response, body) {
     if (!error && response.statusCode == 200) {
       var rawList = body;
-      fw.renameFile(currentFile, oldFile, function() {
-        fw.writeToFile(rawList, currentFile, function() {
+      fw.renameFile(currentFile, oldFile, function(renameError) {
+        if (renameError) {
+          console.log('renameError');
+          console.log(renameError);
+        }
+        fw.writeToFile(rawList, currentFile, function(writeError) {
+          if (writeError) {
+            console.log('writeError');
+            console.log(writeError);
+          }
           csvd.checkForNewLines(oldFile, currentFile, function(lineCheck) {
             if (lineCheck && lineCheck > 0) {
               tw.composeTweet(lineCheck);
