@@ -8,6 +8,7 @@ var request = require('request');
 var csvd = require('./csvdiffer');
 var fw = require('./filewriter');
 var tw = require('./tweeter');
+var rman = require('./redismanager');
 
 var csv = 'https://raw.githubusercontent.com/washingtonpost/data-police-shootings/master/fatal-police-shootings-data.csv';
 
@@ -38,6 +39,7 @@ var runApp = function() {
         });
       });
     } else {
+      console.log('Request error');
       console.log(error);
     }
   });

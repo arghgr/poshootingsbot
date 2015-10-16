@@ -7,7 +7,8 @@ var writeToFile = function(data, filename, callback) {
     console.log('Opened writeStream');
     writeStream.write(data);
     writeStream.end();
-  }).on('finish', function() {
+  })
+  writeStream.on('finish', function() {
     console.log('Data written to ' + filename + '.');
     callback();
   });
