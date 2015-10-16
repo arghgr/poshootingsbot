@@ -12,15 +12,10 @@ var writeToRedis = function(key, value, callback) {
         console.log('Redis SET error.');
         console.log(err);
       }
-      // console.log('Set ' + key + ' to ' + value + ': ' + res);
       console.log('Set ' + key + ': ' + res);
-      redisClient.save(function(e, r) {
-        if (e) { console.log(e); }
-        console.log('Saved: ' + r);
-        redisClient.quit(function() {
-          console.log('writeToRedis disconnected from Redis server.');
-          callback(r);
-        });
+      redisClient.quit(function() {
+        console.log('writeToRedis disconnected from Redis server.');
+        callback(res);
       });
     });
   });
