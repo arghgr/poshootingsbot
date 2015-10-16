@@ -18,6 +18,8 @@ var checkForNewLines = function(file1, file2, callback) {
     countLines(file2, function(count2) {
       var lines1 = count1;
       var lines2 = count2;
+      console.log('file1 count: ' + lines1);
+      console.log('file2 count: ' + lines2);
       var linesDiff = lines2 - lines1;
       if (linesDiff > 0) {
         callback(linesDiff);
