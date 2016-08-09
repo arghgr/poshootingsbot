@@ -17,3 +17,4 @@ Thumbs.db
 ### This repository
 .env
 dump.rdb
+node_modules
